@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKJ LAB | Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">TKJ<span>LAB.</span></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#materi">Tutorial</a>
+            <a href="#quiz">Quiz</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tag">TECHNOLOGY • NETWORKING • INNOVATION</p>
+            <h1>Explore The World<br>Of <span>Technology.</span></h1>
+            <p class="description">
+                Platform pembelajaran Teknik Komputer dan Jaringan.
+                Pelajari teknologi, bangun kemampuan, dan ciptakan masa depan.
+            </p>
+            <a href="tutorial.html" class="btn">Explore Tutorials →</a>
+        </div>
+
+        <div class="hero-visual">
+            <div class="circle"></div>
+            <div class="hero-icon">⌘</div>
+        </div>
+    </section>
+
+    <section class="materi" id="materi">
+        <div class="section-heading">
+            <p class="tag">LEARNING CENTER</p>
+            <h2>Explore <span>Categories</span></h2>
+            <p>Pilih bidang yang ingin kamu pelajari.</p>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari materi TKJ..."
+            >
+        </div>
+
+        <div class="category-grid" id="categoryGrid">
+
+            <div class="category-card" data-category="networking">
+                <div class="card-icon">🌐</div>
+                <h3>Networking</h3>
+                <p>Pelajari jaringan komputer, IP address, subnetting, dan routing.</p>
+                <a href="detail.html?materi=jaringan" class="btn">Explore →</a>
+            </div>
+
+            <div class="category-card" data-category="linux server">
+                <div class="card-icon">🖥️</div>
+                <h3>Linux & Server</h3>
+                <p>Pelajari sistem operasi Linux, server, dan administrasi jaringan.</p>
+                <a href="detail.html?materi=linux-server" class="btn">Explore →</a>
+            </div>
+
+            <div class="category-card" data-category="hardware">
+                <div class="card-icon">⚙️</div>
+                <h3>Computer Hardware</h3>
+                <p>Kenali komponen komputer, perakitan, dan troubleshooting.</p>
+                <a href="detail.html?materi=hardware" class="btn">Explore →</a>
+            </div>
+
+            <div class="category-card" data-category="web development">
+                <div class="card-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>Belajar HTML, CSS, JavaScript, dan pembuatan website.</p>
+                <a href="detail.html?materi=web-development" class="btn">Explore →</a>
+            </div>
+
+            <div class="category-card" data-category="mikrotik">
+                <div class="card-icon">📡</div>
+                <h3>MikroTik</h3>
+                <p>Pelajari konfigurasi router, DHCP, firewall, dan hotspot.</p>
+                <a href="detail.html?materi=mikrotik" class="btn">Explore →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+        <p class="tag">TEST YOUR KNOWLEDGE</p>
+        <h2>Ready to Test Your <span>Skills?</span></h2>
+        <p>Uji pemahamanmu melalui kuis seputar Teknik Komputer dan Jaringan.</p>
+        <button class="btn" onclick="startQuiz()">Start Quiz →</button>
+        <div id="quizArea"></div>
+    </section>
+
+    <footer>
+        <div class="logo">TKJ<span>LAB.</span></div>
+        <p>Learn, Explore, Build Your Future.</p>
+        <p class="copyright">© 2026 TKJ LAB. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
