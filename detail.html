@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Materi | TKJ LAB</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .detail-container {
+            max-width: 950px;
+            margin: auto;
+            padding: 65px 8%;
+        }
+
+        .detail-container h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 20px 0;
+        }
+
+        .detail-container h2 {
+            color: #65a4ff;
+            margin: 35px 0 15px;
+        }
+
+        .detail-container p,
+        .detail-container li {
+            color: #aab7ce;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .detail-container ul {
+            padding-left: 25px;
+        }
+
+        .material-box {
+            background: #111c32;
+            border: 1px solid #243653;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        .back-link {
+            color: #65a4ff;
+            text-decoration: none;
+        }
+
+        .level {
+            display: inline-block;
+            background: #18345c;
+            color: #65a4ff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">TKJ<span>LAB.</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tutorial.html">Tutorial</a>
+    </nav>
+</header>
+
+<main class="detail-container">
+    <a href="tutorial.html" class="back-link">← Back to Tutorials</a>
+
+    <p class="tag" id="category" style="margin-top:35px;">LEARNING CENTER</p>
+    <span class="level">PEMULA</span>
+
+    <h1 id="title">Memuat Materi...</h1>
+    <p id="description"></p>
+
+    <div class="material-box" id="content"></div>
+
+    <a href="tutorial.html" class="btn" style="margin-top:30px;">
+        ← Kembali ke Tutorial
+    </a>
+</main>
+
+<footer>
+    <div class="logo">TKJ<span>LAB.</span></div>
+    <p>Learn, Explore, Build Your Future.</p>
+    <p class="copyright">© 2026 TKJ LAB. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const materials = {
+        "jaringan": {
+            category: "NETWORKING",
+            title: "Dasar Jaringan Komputer",
+            description: "Pelajari konsep dasar jaringan komputer, mulai dari pengertian, jenis, perangkat, hingga manfaatnya.",
+            sections: [
+                {
+                    title: "1. Pengertian Jaringan Komputer",
+                    text: "Jaringan komputer adalah sekumpulan dua atau lebih perangkat yang saling terhubung untuk berkomunikasi, bertukar informasi, dan berbagi sumber daya."
+                },
+                {
+                    title: "2. Jenis-Jenis Jaringan",
+                    list: [
+                        "LAN (Local Area Network): jaringan dalam area terbatas seperti rumah, sekolah, atau kantor.",
+                        "MAN (Metropolitan Area Network): jaringan yang mencakup wilayah sebuah kota.",
+                        "WAN (Wide Area Network): jaringan yang mencakup wilayah geografis yang luas.",
+                        "PAN (Personal Area Network): jaringan pribadi dengan jangkauan dekat."
+                    ]
+                },
+                {
+                    title: "3. Perangkat Jaringan",
+                    list: [
+                        "Router: menghubungkan jaringan yang berbeda.",
+                        "Switch: menghubungkan beberapa perangkat dalam jaringan lokal.",
+                        "Access Point: menyediakan koneksi jaringan nirkabel.",
+                        "Modem: menghubungkan jaringan ke layanan internet melalui penyedia layanan.",
+                        "Kabel UTP: media transmisi data pada jaringan kabel Ethernet."
+                    ]
+                },
+                {
+                    title: "4. Manfaat Jaringan Komputer",
+                    list: [
+                        "Memudahkan pertukaran data.",
+                        "Berbagi perangkat seperti printer.",
+                        "Mempermudah komunikasi.",
+                        "Mendukung pengelolaan informasi bersama."
+                    ]
+                },
+                {
+                    title: "5. Kesimpulan",
+                    text: "Jaringan komputer merupakan bagian penting dari teknologi informasi. Dengan memahami dasarnya, kita dapat mempelajari konfigurasi jaringan yang lebih kompleks."
+                }
+            ]
+        },
+
+        "ip-address": {
+            category: "NETWORKING",
+            title: "IP Address",
+            description: "Mengenal alamat IP dan perannya dalam komunikasi antarperangkat di jaringan.",
+            sections: [
+                {
+                    title: "1. Pengertian IP Address",
+                    text: "IP Address adalah alamat numerik yang digunakan untuk mengenali perangkat dalam jaringan dan membantu data sampai ke tujuan yang benar."
+                },
+                {
+                    title: "2. IPv4 dan IPv6",
+                    list: [
+                        "IPv4 menggunakan alamat 32-bit, biasanya ditulis dalam empat angka yang dipisahkan titik, misalnya 192.168.1.10.",
+                        "IPv6 menggunakan alamat 128-bit dan ditulis dalam kelompok angka heksadesimal yang dipisahkan tanda titik dua."
+                    ]
+                },
+                {
+                    title: "3. IP Address Privat dan Publik",
+                    list: [
+                        "IP privat digunakan di jaringan lokal, seperti jaringan rumah atau sekolah.",
+                        "IP publik digunakan untuk komunikasi melalui jaringan internet dan biasanya diberikan oleh penyedia layanan."
+                    ]
+                },
+                {
+                    title: "4. Contoh Penggunaan",
+                    text: "Pada jaringan lokal, sebuah komputer dapat menggunakan IP 192.168.1.10 dengan subnet mask 255.255.255.0. Perangkat lain dalam jaringan harus memiliki alamat yang sesuai dan tidak sama."
+                }
+            ]
+        },
+
+        "subnetting": {
+            category: "NETWORKING",
+            title: "Subnetting",
+            description: "Belajar membagi jaringan IP menjadi beberapa jaringan yang lebih kecil.",
+            sections: [
+                {
+                    title: "1. Pengertian Subnetting",
+                    text: "Subnetting adalah proses membagi satu jaringan IP menjadi beberapa jaringan yang lebih kecil. Tujuannya agar pengelolaan alamat IP lebih teratur dan penggunaan alamat lebih efisien."
+                },
+                {
+                    title: "2. Subnet Mask dan Prefix",
+                    text: "Subnet mask menentukan bagian alamat IP yang menunjukkan jaringan dan bagian yang menunjukkan perangkat. Prefix ditulis menggunakan tanda garis miring, misalnya /24."
+                },
+                {
+                    title: "3. Istilah Penting",
+                    list: [
+                        "Network address: alamat untuk mengidentifikasi jaringan.",
+                        "Usable IP: alamat yang dapat diberikan kepada perangkat.",
+                        "Broadcast address: alamat untuk mengirim data ke seluruh perangkat dalam subnet IPv4.",
+                        "Subnet mask: penanda bagian jaringan dan bagian host."
+                    ]
+                },
+                {
+                    title: "4. Contoh",
+                    text: "Alamat 192.168.1.10/24 menggunakan subnet mask 255.255.255.0. Jaringannya adalah 192.168.1.0 dan rentang IP perangkat yang dapat digunakan adalah 192.168.1.1 sampai 192.168.1.254."
+                }
+            ]
+        },
+
+        "linux-server": {
+            category: "LINUX & SERVER",
+            title: "Linux Server",
+            description: "Mengenal sistem operasi Linux dan fungsi server dalam jaringan.",
+            sections: [
+                {
+                    title: "1. Pengertian Linux",
+                    text: "Linux adalah sistem operasi berbasis kernel Linux. Linux banyak digunakan pada server karena fleksibel, dapat dikonfigurasi, dan tersedia dalam berbagai distribusi."
+                },
+                {
+                    title: "2. Pengertian Server",
+                    text: "Server adalah komputer atau sistem yang menyediakan layanan atau sumber daya bagi perangkat lain yang disebut client."
+                },
+                {
+                    title: "3. Contoh Layanan Server",
+                    list: [
+                        "Web server: menyajikan halaman website.",
+                        "File server: menyimpan dan membagikan file.",
+                        "DNS server: membantu menerjemahkan nama domain menjadi alamat IP.",
+                        "DHCP server: membagikan konfigurasi IP secara otomatis."
+                    ]
+                },
+                {
+                    title: "4. Contoh Distribusi Linux",
+                    text: "Ubuntu Server, Debian, dan Rocky Linux merupakan contoh distribusi Linux yang dapat digunakan untuk kebutuhan server."
+                }
+            ]
+        },
+
+        "hardware": {
+            category: "COMPUTER HARDWARE",
+            title: "Computer Hardware",
+            description: "Mengenal komponen fisik komputer beserta fungsi dasarnya.",
+            sections: [
+                {
+                    title: "1. Pengertian Hardware",
+                    text: "Hardware atau perangkat keras adalah bagian fisik komputer yang dapat dilihat dan disentuh."
+                },
+                {
+                    title: "2. Komponen Utama",
+                    list: [
+                        "Motherboard: papan utama tempat komponen komputer terhubung.",
+                        "Processor (CPU): menjalankan instruksi dan mengolah data.",
+                        "RAM: menyimpan data sementara saat komputer bekerja.",
+                        "Storage: menyimpan sistem operasi, aplikasi, dan file.",
+                        "Power Supply: menyediakan daya listrik untuk komponen komputer.",
+                        "GPU: mengolah tampilan grafis."
+                    ]
+                },
+                {
+                    title: "3. Perangkat Input dan Output",
+                    list: [
+                        "Input: keyboard, mouse, dan mikrofon.",
+                        "Output: monitor, printer, dan speaker."
+                    ]
+                },
+                {
+                    title: "4. Kesimpulan",
+                    text: "Setiap komponen hardware memiliki fungsi yang berbeda dan bekerja sama agar komputer dapat berjalan dengan baik."
+                }
+            ]
+        },
+
+        "mikrotik": {
+            category: "MIKROTIK",
+            title: "Dasar MikroTik",
+            description: "Mengenal router MikroTik dan beberapa konfigurasi dasar jaringan.",
+            sections: [
+                {
+                    title: "1. Pengertian MikroTik",
+                    text: "MikroTik adalah perusahaan yang mengembangkan perangkat jaringan dan sistem operasi RouterOS yang banyak digunakan untuk mengelola jaringan."
+                },
+                {
+                    title: "2. Fungsi Router MikroTik",
+                    list: [
+                        "Menghubungkan jaringan yang berbeda.",
+                        "Mengatur alamat IP.",
+                        "Membagikan IP secara otomatis menggunakan DHCP.",
+                        "Mengatur akses dan lalu lintas jaringan."
+                    ]
+                },
+                {
+                    title: "3. Cara Mengelola",
+                    text: "Router MikroTik dapat dikelola melalui Winbox, WebFig, atau terminal. Konfigurasi harus dilakukan dengan hati-hati agar perangkat tetap dapat diakses."
+                },
+                {
+                    title: "4. Konfigurasi Dasar",
+                    text: "Konfigurasi awal biasanya mencakup pengaturan identitas router, alamat IP pada interface, DHCP, dan pengujian koneksi jaringan."
+                }
+            ]
+        },
+
+        "web-development": {
+            category: "WEB DEVELOPMENT",
+            title: "Dasar Web Development",
+            description: "Mengenal dasar pembuatan website menggunakan HTML, CSS, dan JavaScript.",
+            sections: [
+                {
+                    title: "1. Pengertian Web Development",
+                    text: "Web development adalah proses membuat dan mengembangkan website. Proses ini mencakup tampilan halaman, fungsi interaktif, dan pengelolaan data."
+                },
+                {
+                    title: "2. HTML",
+                    text: "HTML digunakan untuk menyusun struktur halaman website, seperti judul, paragraf, gambar, dan tautan."
+                },
+                {
+                    title: "3. CSS",
+                    text: "CSS digunakan untuk mengatur tampilan website, seperti warna, ukuran teks, jarak, dan tata letak."
+                },
+                {
+                    title: "4. JavaScript",
+                    text: "JavaScript digunakan untuk menambahkan interaksi pada website, misalnya tombol yang merespons klik atau menu yang bisa dibuka."
+                },
+                {
+                    title: "5. Kesimpulan",
+                    text: "HTML membentuk struktur, CSS mengatur tampilan, dan JavaScript menambahkan interaksi. Ketiganya merupakan dasar untuk mulai membuat website."
+                }
+            ]
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const materialKey = params.get("materi") || "jaringan";
+    const material = materials[materialKey] || materials["jaringan"];
+
+    document.title = material.title + " | TKJ LAB";
+    document.getElementById("category").textContent = material.category;
+    document.getElementById("title").textContent = material.title;
+    document.getElementById("description").textContent = material.description;
+
+    const content = document.getElementById("content");
+
+    material.sections.forEach(section => {
+        const heading = document.createElement("h2");
+        heading.textContent = section.title;
+        content.appendChild(heading);
+
+        if (section.text) {
+            const paragraph = document.createElement("p");
+            paragraph.textContent = section.text;
+            content.appendChild(paragraph);
+        }
+
+        if (section.list) {
+            const list = document.createElement("ul");
+
+            section.list.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                list.appendChild(listItem);
+            });
+
+            content.appendChild(list);
+        }
+    });
+</script>
+
+</body>
+</html>
