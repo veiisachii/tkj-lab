@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial | TKJ LAB</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tutorial-page {
+            padding: 70px 9%;
+            min-height: 80vh;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #65a4ff;
+            text-decoration: none;
+            margin-bottom: 35px;
+        }
+
+        .tutorial-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .tutorial-item {
+            padding: 25px;
+            background: #111c32;
+            border: 1px solid #243653;
+            border-radius: 12px;
+        }
+
+        .tutorial-item p {
+            color: #9ba8c3;
+            margin: 12px 0;
+            line-height: 1.7;
+        }
+
+        .tutorial-item a {
+            color: #65a4ff;
+            text-decoration: none;
+        }
+
+        @media(max-width: 650px) {
+            .tutorial-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">TKJ<span>LAB.</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#tutorials">Tutorial</a>
+    </nav>
+</header>
+
+<main class="tutorial-page">
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+
+    <p class="tag">LEARNING CENTER</p>
+    <h1>TKJ <span style="color:#3987ff;">Tutorials</span></h1>
+    <p class="description">
+        Pelajari berbagai materi Teknik Komputer dan Jaringan
+        dari dasar hingga tingkat lanjutan.
+    </p>
+
+    <div class="tutorial-list" id="tutorials">
+
+        <div class="tutorial-item">
+            <h3>Dasar Jaringan Komputer</h3>
+            <p>Pengertian jaringan komputer, jenis jaringan, dan manfaatnya.</p>
+            <a href="detail.html?materi=jaringan">Read More →</a>
+        </div>
+
+        <div class="tutorial-item">
+
+            <h3>IP Address</h3>
+            <p>Mengenal IPv4, IPv6, kelas IP, dan konfigurasi alamat jaringan.</p>
+            <a href="detail.html?materi=ip-address">Read More →</a>
+        </div>
+
+        <div class="tutorial-item">
+
+            <h3>Subnetting</h3>
+            <p>Belajar membagi jaringan menggunakan subnet mask dan prefix.</p>
+            <a href="detail.html?materi=subnetting">Read More →</a>
+        </div>
+
+        <div class="tutorial-item">
+
+            <h3>Linux Server</h3>
+            <p>Mengenal Linux dan dasar administrasi server.</p>
+            <a href="detail.html?materi=linux-server">Read More →</a>
+        </div>
+
+        <div class="tutorial-item">
+
+            <h3>Computer Hardware</h3>
+            <p>Mengenal komponen komputer dan fungsi setiap perangkat.</p>
+            <a href="detail.html?materi=hardware">Read More →</a>
+        </div>
+
+        <div class="tutorial-item">
+
+            <h3>MikroTik</h3>
+            <p>Mempelajari konfigurasi dasar router MikroTik.</p>
+            <a href="detail.html?materi=mikrotik">Read More →</a>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="logo">TKJ<span>LAB.</span></div>
+    <p>Learn, Explore, Build Your Future.</p>
+    <p class="copyright">© 2026 TKJ LAB. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
